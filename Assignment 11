@@ -1,0 +1,17 @@
+
+# Assignment 2: Creating a Pandas Series with Ten Random Numbers
+
+import numpy as np
+import pandas as pd
+
+# Fix the random numbers so the output stays the same
+np.random.seed(42)
+
+# Generate 10 random integers between 1 and 100
+data = np.random.randint(1, 101, 10)
+
+# Convert the random numbers into a Pandas Series
+s = pd.Series(data)
+
+# Display the Series
+print(s)
