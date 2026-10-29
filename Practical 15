@@ -1,0 +1,34 @@
+import gc
+
+# Display garbage collection status
+print("Garbage collection enabled:", gc.isenabled())
+
+# Create a class
+class Student:
+    def __init__(self, name):
+        self.name = name
+        self.ref = None
+
+# Create circular references
+s1 = Student("Rahul")
+s2 = Student("Amit")
+
+s1.ref = s2
+s2.ref = s1
+
+print("Circular references created")
+
+# Remove references to the objects
+del s1
+del s2
+
+print("Objects deleted")
+
+# Perform manual garbage collection
+collected = gc.collect()
+
+print("Garbage collection completed")
+print("Objects collected:", collected)
+
+# Display garbage collection status again
+print("Garbage collection enabled:", gc.isenabled())
